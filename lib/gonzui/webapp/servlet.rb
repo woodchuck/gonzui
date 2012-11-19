@@ -49,6 +49,17 @@ module Gonzui
       ]
     end
 
+    def make_opensearch
+      [:link,
+        {
+          :rel => "search",
+          :href => "/opensearch",
+          :title => "Gonzui",
+          :type => "application/opensearchdescription+xml"
+        }
+      ]
+    end
+
     def make_footer
       [:div, {:class => "footer"}, 
         [:a, {:href => make_markup_uri}, _("List of all packages")],
@@ -67,7 +78,7 @@ module Gonzui
     end
 
     def make_meta_and_css
-      [ make_meta, make_content_script_type, make_css ]
+      [ make_meta, make_content_script_type, make_css, make_opensearch ]
     end
 
     def make_title(sub_title = nil)
